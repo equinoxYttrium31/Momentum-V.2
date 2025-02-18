@@ -9,7 +9,7 @@
 **Smart Reminders & Streaks** – Never miss a day with intelligent notifications. 
 
 ## Tech Stack  
-- **Frontend:** Vite + React
+- **Frontend:** React
 - **Backend:** Node.js, Express, MongoDB  
 
 <!-- ## Installation & Setup  
