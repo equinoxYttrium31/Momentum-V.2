@@ -1,0 +1,7 @@
+.app-container-navbar {
+	position: sticky;
+	top: 0;
+	height: fit-content;
+	background-color: var(--bg-color);
+	transition: all 0.3s ease-in-out;
+}

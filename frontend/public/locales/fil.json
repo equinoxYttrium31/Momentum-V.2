@@ -1,4 +1,7 @@
 {
-	"welcome": "Mabuhay",
-	"description": "Ito ay halimbawa ng pagpapalit ng lenguwahe."
+	"HeroSection": {
+		"header": "Gumawa ng Mabuting Gawi, Iwan ang Di-Kanais-nais!",
+		"subtext": "Tutulungan ka ng Momentum na magpatibay ng positibong gawain, manatiling consistent, at masubaybayan ang iyong progreso gamit ang AI-powered insights at suporta ng komunidad.",
+		"cta": "Magsimula Na!"
+	}
 }

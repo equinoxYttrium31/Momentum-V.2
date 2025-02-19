@@ -6,8 +6,6 @@
 	grid-template-rows: 1fr;
 	align-items: center;
 	justify-content: center;
-	position: sticky;
-	top: 0;
 }
 
 .nb-container-logos {
@@ -43,15 +41,19 @@
 	gap: 4rem;
 	align-items: center;
 	justify-content: end;
+	font-size: clamp(0.6rem, 1rem, 4rem);
+	line-height: clamp(0.6rem, 1rem, 4rem);
 }
 
 .nb-list-items {
+	font-size: clamp(0.6rem, 1rem, 4rem);
+	line-height: clamp(0.6rem, 1rem, 4rem);
 	font-weight: 600;
 	letter-spacing: 1px;
-	transition: all 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-#nb-hidden-buttons {
+.nb-hidden-buttons {
 	display: none;
 }
 
@@ -75,6 +77,10 @@
 }
 
 @media (max-width: 1466px) {
+	.nb-container-main {
+		align-items: start;
+	}
+
 	.nb-container-list {
 		grid-column: span 2;
 		display: flex;
@@ -93,6 +99,53 @@
 
 	.nb-burger {
 		display: block;
+		position: absolute;
+		top: 1.6rem;
+		right: 0rem;
+	}
+
+	.nb-container-list.closed {
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+	.nb-container-list.open {
+		display: flex;
+		align-items: start;
+	}
+
+	.nb-list-group.nb-list-open {
+		padding: 1rem 4rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		z-index: 25;
+		position: absolute;
+		top: 4.5rem;
+		right: 0rem;
+		border-radius: 0.5rem;
+		background-color: #1f2635;
+		text-wrap: nowrap;
+		box-shadow: #162535 2px 2px 5px;
+	}
+
+	.nb-container-buttons-li {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center;
+		font-size: clamp(0.8rem, 1.128vw, 4rem);
+		line-height: clamp(0.8rem, 1.128vw, 4rem);
+	}
+
+	.nb-hidden-buttons.show {
+		display: flex;
+	}
+
+	.nb-list-closed {
+		display: none;
 	}
 }
 

@@ -1,0 +1,90 @@
+/*Containers*/
+.hs-container-main {
+	display: grid;
+	grid-template-columns: 0.8fr 1fr;
+	grid-template-rows: 1fr 0.5fr;
+	height: 90vh;
+}
+
+.hs-container-images {
+	grid-row: span 2;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hs-container-texts {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	padding: 5rem 0;
+	gap: 1rem;
+}
+
+.hs-container-buttons {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+}
+
+/*Components*/
+.hs-image {
+	aspect-ratio: 4/4;
+	height: 40vw;
+}
+
+.hs-text-header {
+	font-family: var(--heading-font);
+	font-size: clamp(2rem, 3.7vw, 6rem);
+	text-wrap: pretty;
+	font-weight: 700;
+	letter-spacing: clamp(2px, 5px, 15px);
+	line-height: clamp(2rem, 3.7vw, 6rem);
+}
+
+.hs-text-subtext {
+	font-size: clamp(1rem, 1.128vw, 4rem);
+	text-wrap: stable;
+	letter-spacing: clamp(2px, 4px, 6px);
+	line-height: clamp(1rem, 1.128vw, 4rem);
+}
+
+.cta-btn {
+	padding: 0.5rem 2.5rem;
+	transition: background 0.2s ease-in-out;
+}
+
+.cta-btn:hover {
+	background-color: var(--hover-button);
+}
+
+@media (max-width: 720px) {
+	.hs-container-main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 80vh;
+		gap: 2rem;
+	}
+
+	.hs-container-images {
+		grid-row: span 1;
+		height: fit-content;
+	}
+
+	.hs-container-texts {
+		margin: 0;
+		padding: 0;
+		justify-content: center;
+		height: fit-content;
+		text-align: center;
+	}
+
+	.hs-container-buttons {
+		align-items: center;
+	}
+}

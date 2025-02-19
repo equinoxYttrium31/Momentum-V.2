@@ -1,4 +1,7 @@
 {
-	"welcome": "Welcome",
-	"description": "This is an example of language switching."
+	"HeroSection": {
+		"header": "Build Better Habits, Break the Bad Ones!",
+		"subtext": "Momentum helps you develop positive habits, stay consistent, and track your progress with Al-driven insights and community support.",
+		"cta": "Start Now!"
+	}
 }

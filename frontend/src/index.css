@@ -48,6 +48,10 @@ body {
 	color: #e3fdf7;
 }
 
+button {
+	text-wrap: nowrap;
+}
+
 button:hover {
 	cursor: pointer;
 }
@@ -59,4 +63,10 @@ select {
 select:hover {
 	cursor: pointer;
 	box-shadow: var(--main-button) 2px 2px 5px;
+}
+
+@media (max-width: 780px) {
+	body {
+		padding: 0 1rem;
+	}
 }
