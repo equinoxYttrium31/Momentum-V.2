@@ -4,6 +4,12 @@ import './App.css';
 import NavbarComponent from './components/static-components/jsx/navbar-component';
 
 const Homepage = React.lazy(() => import('./pages/jsx/homepage-pages'));
+const LoginComponent = React.lazy(() =>
+	import('./components/static-components/jsx/authentication-components/login-component'),
+);
+const SignUpComponent = React.lazy(() =>
+	import('./components/static-components/jsx/authentication-components/signup-component'),
+);
 
 function App() {
 	return (
@@ -26,6 +32,14 @@ function App() {
 						<Route
 							path='/contact'
 							element={''}
+						/>
+						<Route
+							path='/login'
+							element={<LoginComponent />}
+						/>
+						<Route
+							path='/signup'
+							element={<SignUpComponent />}
 						/>
 					</Routes>
 				</div>

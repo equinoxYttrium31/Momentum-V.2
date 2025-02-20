@@ -21,6 +21,7 @@
 	justify-content: end;
 	padding: 5rem 0;
 	gap: 1rem;
+	animation: fadeUp 0.8s ease-in-out;
 }
 
 .hs-container-buttons {
@@ -28,12 +29,14 @@
 	display: flex;
 	flex-direction: column;
 	align-items: end;
+	animation: fadeUp 1s ease-in-out;
 }
 
 /*Components*/
 .hs-image {
 	aspect-ratio: 4/4;
 	height: 40vw;
+	animation: fadeIn 1s ease-in-out;
 }
 
 .hs-text-header {
@@ -86,5 +89,32 @@
 
 	.hs-container-buttons {
 		align-items: center;
+	}
+}
+
+/*animations*/
+@keyframes fadeIn {
+	0% {
+		transform: scaleX(1) scaleY(1);
+		opacity: 0;
+	}
+	50% {
+		transform: scaleX(1.05) scaleY(1.05);
+		opacity: 0.5;
+	}
+	100% {
+		transform: scaleX(1) scaleY(1);
+		opacity: 1;
+	}
+}
+
+@keyframes fadeUp {
+	0% {
+		opacity: 0;
+		transform: translateY(5rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0rem);
 	}
 }

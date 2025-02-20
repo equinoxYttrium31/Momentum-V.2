@@ -1,6 +1,6 @@
 import '../css/navbar-component.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '/momentum-logo.png';
 import ThemeToggle from '../../../utils/ThemeToggle';
 import LanguageSwitcher from '../../reusable-components/LanguageSwitcher';
@@ -12,6 +12,8 @@ function NavbarComponent() {
 	const toggleMenu = () => {
 		setMenuOpen(!menuOpen);
 	};
+
+	const navigate = useNavigate();
 
 	return (
 		<div className='nb-container-main'>
@@ -50,13 +52,8 @@ function NavbarComponent() {
 							<ThemeToggle />
 
 							<Buttons
-								onClick={''}
+								onClick={() => navigate('/login')}
 								text={'Login'}
-								className='btn-navbar'
-							/>
-							<Buttons
-								onClick={''}
-								text={'Sign Up'}
 								className='btn-navbar'
 							/>
 						</div>
@@ -69,13 +66,8 @@ function NavbarComponent() {
 				<ThemeToggle />
 
 				<Buttons
-					onClick={''}
+					onClick={() => navigate('/login')}
 					text={'Login'}
-					className='btn-navbar'
-				/>
-				<Buttons
-					onClick={''}
-					text={'Sign Up'}
 					className='btn-navbar'
 				/>
 			</div>

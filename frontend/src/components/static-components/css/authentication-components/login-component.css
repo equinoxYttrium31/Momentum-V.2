@@ -1,0 +1,88 @@
+.lc-container-main {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	height: 90vh;
+}
+
+.lc-container-left {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	width: 80%;
+	margin: 0 auto;
+	gap: 2rem;
+}
+
+.lc-engaging-text {
+	letter-spacing: clamp(1px, 2px, 4px);
+	font-size: clamp(0.8rem, 1.125vw, 2rem);
+}
+
+.lc-btn:hover {
+	background-color: var(--hover-button);
+}
+
+.lc-container-right {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	width: 80%;
+	margin: 0 auto;
+	gap: 2rem;
+}
+
+.lc-container-glass {
+	display: flex;
+	flex-direction: column;
+	height: max-content;
+	gap: clamp(1rem, 2vw, 4rem);
+}
+
+.lc-header-text {
+	font-family: var(--heading-font);
+	font-size: clamp(1rem, 2vw, 3rem);
+	line-height: clamp(1rem, 2vw, 3rem);
+	letter-spacing: clamp(2px, 3px, 4px);
+}
+
+.lc-container-form {
+	display: flex;
+	flex-direction: column;
+	height: max-content;
+	gap: clamp(1rem, 2vw, 4rem);
+	align-items: start;
+}
+
+.lc-input {
+	width: 100%;
+}
+
+.sign-in {
+	padding: 0.5rem 3rem;
+}
+
+@media (max-width: 780px) {
+	.lc-container-main {
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+		justify-content: center;
+		gap: 7rem;
+	}
+
+	.lc-container-glass {
+		width: 100%;
+	}
+
+	.lc-engaging-text {
+		text-align: justify;
+	}
+
+	.lc-input,
+	.lc-btn {
+		width: 100%;
+	}
+}

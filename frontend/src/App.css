@@ -4,4 +4,17 @@
 	height: fit-content;
 	background-color: var(--bg-color);
 	transition: all 0.3s ease-in-out;
+	animation: fadeDown 1s ease-in-out;
+}
+
+/*animations*/
+@keyframes fadeDown {
+	0% {
+		opacity: 0;
+		transform: translateY(-5rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0rem);
+	}
 }

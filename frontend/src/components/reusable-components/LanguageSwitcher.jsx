@@ -12,7 +12,7 @@ const LanguageSwitcher = () => {
 		<select
 			value={i18n.language}
 			onChange={handleChangeLanguage}
-			className='p-2 border rounded outline-none'
+			className='p-2 border-none rounded outline-none'
 		>
 			<option
 				className=' bg-[var(--bg-color)]'

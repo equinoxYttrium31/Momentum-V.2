@@ -3,5 +3,16 @@
 		"header": "Build Better Habits, Break the Bad Ones!",
 		"subtext": "Momentum helps you develop positive habits, stay consistent, and track your progress with Al-driven insights and community support.",
 		"cta": "Start Now!"
+	},
+
+	"Authentication": {
+		"login-header": "Log in to your Account",
+		"sideText": "Join thousands of people building better habits with Momentum! Create an account to track your progress, set goals, and stay motivated wherever you go.",
+		"signup-button": "Create an Account",
+		"signin-button": "Sign In",
+		"sign-up": "Sign Up",
+		"sideText-signup": "Log in to Momentum and stay on track with your habits! Access your progress, set new goals, and keep yourself motivated—anytime, anywhere.",
+		"signup-header": "Create your Account",
+		"signup-instructions": "Fill out all the important information."
 	}
 }

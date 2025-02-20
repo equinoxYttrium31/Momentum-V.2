@@ -3,5 +3,16 @@
 		"header": "Gumawa ng Mabuting Gawi, Iwan ang Di-Kanais-nais!",
 		"subtext": "Tutulungan ka ng Momentum na magpatibay ng positibong gawain, manatiling consistent, at masubaybayan ang iyong progreso gamit ang AI-powered insights at suporta ng komunidad.",
 		"cta": "Magsimula Na!"
+	},
+
+	"Authentication": {
+		"login-header": "Mag-login sa iyong Account",
+		"sideText": "Sumali sa libu-libong tao na bumubuo ng mas mahuhusay na gawi gamit ang Momentum! Gumawa ng account upang masubaybayan ang iyong progreso, magtakda ng mga layunin, at manatiling motivated saan ka man magpunta.",
+		"signup-button": "Gumawa ng Account",
+		"signin-button": "Mag-sign in",
+		"sign-up": "Mag-sign up",
+		"sideText-signup": "Mag-log in sa Momentum at manatili sa tamang landas sa iyong mga gawain! Tingnan ang iyong progreso, magtakda ng bagong mga layunin, at manatiling motivated—kahit kailan, kahit saan.",
+		"signup-header": "Gumawa ng iyong Account",
+		"signup-instructions": "Sagutan ang lahat ng impormasyong kailngan."
 	}
 }
