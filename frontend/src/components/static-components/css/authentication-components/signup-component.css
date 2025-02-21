@@ -34,6 +34,13 @@
 	flex-direction: column;
 }
 
+.lc-side-logo {
+	aspect-ratio: 4/4;
+	width: 25%;
+	margin: 0.5rem auto;
+	filter: var(--image-filter);
+}
+
 .sc-text-header {
 	font-family: var(--heading-font);
 	font-size: clamp(1rem, 2vw, 3rem);
@@ -73,8 +80,13 @@
 		display: flex;
 		flex-direction: column-reverse;
 		align-items: center;
-		justify-content: center;
+		justify-content: start;
 		gap: 7rem;
+	}
+
+	.sc-container-left {
+		padding-bottom: 2rem;
+		margin: 0;
 	}
 
 	.sc-form-body {

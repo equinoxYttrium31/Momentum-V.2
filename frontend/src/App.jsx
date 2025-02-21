@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import './App.css';
 import NavbarComponent from './components/static-components/jsx/navbar-component';
 
@@ -18,6 +19,8 @@ function App() {
 				<div className='app-container-navbar'>
 					<NavbarComponent />
 				</div>
+
+				<Toaster position='bottom-right' />
 
 				<div className='app-container-Homepage'>
 					<Routes>
