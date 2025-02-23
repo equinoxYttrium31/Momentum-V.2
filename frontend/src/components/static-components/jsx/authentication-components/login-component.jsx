@@ -20,6 +20,7 @@ function LoginComponent() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const [isVisible, setIsVisible] = useState(false);
 
 	const handleLogin = async () => {
 		if (!email || !password) {
@@ -74,12 +75,61 @@ function LoginComponent() {
 							onChange={(e) => setEmail(e.target.value)}
 						/>
 						<InputField
-							inpType={'password'}
+							inpType={isVisible ? 'text' : 'password'}
 							placeholder={'Password'}
 							className={'inp-password lc-input'}
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
+
+						<button
+							type='button'
+							className='eye-toggle'
+							onClick={() => setIsVisible(!isVisible)}
+						>
+							{isVisible ? (
+								// Eye Open (Visible)
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									width='24'
+									height='24'
+									viewBox='0 0 24 24'
+									fill='none'
+									stroke='currentColor'
+									strokeWidth='2'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+								>
+									<path d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z' />
+									<circle
+										cx='12'
+										cy='12'
+										r='3'
+									/>
+								</svg>
+							) : (
+								// Eye Closed (Hidden)
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									width='24'
+									height='24'
+									viewBox='0 0 24 24'
+									fill='none'
+									stroke='currentColor'
+									strokeWidth='2'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+								>
+									<path d='M17.94 17.94A10.12 10.12 0 0 1 12 20c-7 0-11-8-11-8a18.5 18.5 0 0 1 3.17-4.91m4.5-3A9.71 9.71 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-3.17 4.91' />
+									<line
+										x1='2'
+										y1='2'
+										x2='22'
+										y2='22'
+									/>
+								</svg>
+							)}
+						</button>
 
 						{error && <p className='error-message'>{error}</p>}
 

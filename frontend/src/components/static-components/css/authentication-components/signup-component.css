@@ -26,6 +26,7 @@
 }
 .sc-container-form {
 	gap: 2rem;
+	animation: fadeUp 0.5s ease-in-out;
 }
 
 .sc-container-form,
@@ -43,8 +44,8 @@
 
 .sc-text-header {
 	font-family: var(--heading-font);
-	font-size: clamp(1rem, 2vw, 3rem);
-	line-height: clamp(1rem, 2vw, 3rem);
+	font-size: clamp(1.5rem, 2vw, 3rem);
+	line-height: clamp(1.5rem, 2vw, 3rem);
 	letter-spacing: clamp(2px, 3px, 4px);
 }
 
@@ -82,6 +83,7 @@
 		align-items: center;
 		justify-content: start;
 		gap: 7rem;
+		height: fit-content;
 	}
 
 	.sc-container-left {
@@ -92,8 +94,21 @@
 	.sc-form-body {
 		display: flex;
 		flex-direction: column;
+		gap: 2rem;
 	}
 	.sc-container-form {
 		width: 100%;
+		margin-top: 2rem;
+	}
+}
+
+@keyframes fadeUp {
+	0% {
+		opacity: 0;
+		transform: translateY(5rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0rem);
 	}
 }

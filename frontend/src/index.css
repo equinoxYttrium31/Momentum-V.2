@@ -5,6 +5,7 @@
 :root {
 	--bg-color: #d1f8ef;
 	--text-color: #3674b5;
+	--text-hover: #35587e;
 	--main-button: #35587e;
 	--hover-button: #366fac;
 	--image-filter: invert(1) contrast(100%);
@@ -21,9 +22,29 @@
 .dark {
 	--bg-color: #1a202c;
 	--text-color: #d1f8ef;
+	--text-hover: #366fac;
 	--image-filter: none;
 	--main-button: rgb(39, 53, 83);
 	--hover-button: rgb(25, 43, 63);
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+::-webkit-scrollbar-track {
+	background: linear-gradient(to bottom, var(--bg-color));
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(45deg, #64b5f6, #4fc3f7);
+	border-radius: 10px;
+	transition: background 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(45deg, #42a5f5, #29b6f6);
 }
 
 body {

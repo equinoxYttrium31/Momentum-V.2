@@ -34,16 +34,37 @@
 	gap: 2rem;
 }
 
+.inp-password {
+	padding-right: 2.5rem;
+	width: 100%;
+}
+
+.eye-toggle {
+	position: absolute;
+	right: 1rem;
+	top: 63.5%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .lc-container-glass {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	height: max-content;
 	gap: clamp(1rem, 2vw, 4rem);
+	animation: fadeUp 0.5s ease-in-out;
 }
 
 .lc-header-text {
+	text-wrap: nowrap;
 	font-family: var(--heading-font);
-	font-size: clamp(1rem, 2vw, 3rem);
+	font-size: clamp(1.5rem, 2vw, 3rem);
 	line-height: clamp(1rem, 2vw, 3rem);
 	letter-spacing: clamp(2px, 3px, 4px);
 }
@@ -72,6 +93,7 @@
 		justify-content: start;
 		gap: 7rem;
 		margin: 2rem 0;
+		height: fit-content;
 	}
 
 	.lc-container-left {
@@ -80,10 +102,20 @@
 
 	.lc-container-glass {
 		width: 100%;
+		margin-top: 2rem;
+		gap: 5rem;
+	}
+
+	.lc-container-form {
+		gap: 2rem;
 	}
 
 	.lc-engaging-text {
 		text-align: justify;
+	}
+
+	.eye-toggle {
+		top: 67.5%;
 	}
 
 	.lc-input,

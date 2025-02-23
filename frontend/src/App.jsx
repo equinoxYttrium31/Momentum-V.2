@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
 import NavbarComponent from './components/static-components/jsx/navbar-component';
+import FooterComponent from './components/static-components/jsx/footer-component';
 
 const Homepage = React.lazy(() => import('./pages/jsx/homepage-pages'));
 const LoginComponent = React.lazy(() =>
@@ -45,6 +46,10 @@ function App() {
 							element={<SignUpComponent />}
 						/>
 					</Routes>
+				</div>
+
+				<div className='app-container-footer'>
+					<FooterComponent />
 				</div>
 			</div>
 		</Router>
