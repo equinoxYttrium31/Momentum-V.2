@@ -23,7 +23,7 @@ function FooterComponent() {
 						</li>
 						<li className='fs-nav-items'>
 							<Link
-								to='/about-us'
+								to='/about'
 								onClick={handleLinkClick}
 								className='item-link'
 							>

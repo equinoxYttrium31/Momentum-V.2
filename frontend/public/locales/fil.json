@@ -14,5 +14,31 @@
 		"sideText-signup": "Mag-log in sa Momentum at manatili sa tamang landas sa iyong mga gawain! Tingnan ang iyong progreso, magtakda ng bagong mga layunin, at manatiling motivated—kahit kailan, kahit saan.",
 		"signup-header": "Gumawa ng iyong Account",
 		"signup-instructions": "Sagutan ang lahat ng impormasyong kailngan."
+	},
+
+	"AboutUs": {
+		"Au-Header": "Higit pa sa isang habit tracker, simulan ang galaw tungo sa mas mabuting buhay!",
+		"Au-Subtext": "Sa Momentum, naniniwala kami na ang maliliit pero tuloy-tuloy na gawain ay maaaring magdala ng malaking pagbabago. Kung gusto mong magsimula ng bagong habit o iwan ang luma, nandito kami para samahan ka sa bawat hakbang ng iyong journey.",
+		"Mission-Text": "Tutulungan ka naming bumuo ng makabuluhan at pangmatagalang mga habit na naaayon sa iyong mga layunin. Ginagamit namin ang smart tracking, AI-powered insights, at suporta ng komunidad upang gawing madali, engaging, at epektibo ang habit-building.",
+		"CTA-Header": "Sumali sa Momentum!",
+		"CTA-Subtext": "Simulan ang pagtutok sa iyong mga gawi ng mas matalino, hindi mas mahirap.",
+		"CTA-Button": "Magsimula Ngayon"
+	},
+
+	"Au-Story": {
+		"item-1-header": "Ang Ideya",
+		"item-1-text": "Nagsimula ang Momentum sa isang simpleng pananaw: mahirap bumuo ng mabubuting gawain, pero hindi dapat ganun. Gusto naming lumikha ng isang habit tracker na umaangkop sa'yo, hindi ikaw ang kailangang mag-adjust dito.",
+
+		"item-2-header": "Ang Unang Prototype",
+		"item-2-text": "Sinimulan naming buuin ang Momentum na may pokus sa pagiging simple, AI-powered insights, at personalized habit tracking. Ang layunin namin ay gawing masaya at epektibo ang pagbuo ng habits, hindi nakakapagod.",
+
+		"item-3-header": "Paglago",
+		"item-3-text": "Mula sa isang simpleng proyekto, naging isang kilusan ito. Nagustuhan ng mga beta users ang AI-driven insights at community challenges, na tumulong sa amin na mas pagandahin pa ang platform.",
+
+		"item-4-header": "Opisyal na Paglulunsad",
+		"item-4-text": "Opisyal nang inilunsad ang Momentum, binibigyan ng kapangyarihan ang libu-libong users na kontrolin ang kanilang mga gawain. Sa bawat update, patuloy kaming nag-iinnovate at nagpapahusay.",
+
+		"item-5-header": "Ang Hinaharap",
+		"item-5-text": "Nagsisimula pa lang kami! Mas maraming features, mas malalim na insights, at mas matibay na komunidad ang paparating. Nanatili ang aming misyon: tulungan kang bumuo ng mga habit na pangmatagalan."
 	}
 }

@@ -15,6 +15,12 @@ function NavbarComponent() {
 
 	const navigate = useNavigate();
 
+	const handleNavigation = (path) => {
+		setMenuOpen(false);
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+		navigate(path);
+	};
+
 	return (
 		<div className='nb-container-main'>
 			<div className='nb-container-logos'>
@@ -38,13 +44,28 @@ function NavbarComponent() {
 
 				<ul className={`nb-list-group ${menuOpen ? 'nb-list-open' : 'nb-list-closed'}`}>
 					<li className='nb-list-items'>
-						<Link to='/'>HOME</Link>
+						<Link
+							to='/'
+							onClick={() => handleNavigation('/')}
+						>
+							HOME
+						</Link>
 					</li>
 					<li className='nb-list-items'>
-						<Link to='/about'>ABOUT</Link>
+						<Link
+							to='/about'
+							onClick={() => handleNavigation('/about')}
+						>
+							ABOUT
+						</Link>
 					</li>
 					<li className='nb-list-items'>
-						<Link to='/contact'>CONTACT US</Link>
+						<Link
+							to='/contact'
+							onClick={() => handleNavigation('/contact')}
+						>
+							CONTACT US
+						</Link>
 					</li>
 					<li className={`nb-hidden-buttons ${menuOpen ? 'show' : ''}`}>
 						<div className='nb-container-buttons-li'>
@@ -52,7 +73,7 @@ function NavbarComponent() {
 							<ThemeToggle />
 
 							<Buttons
-								onClick={() => navigate('/login')}
+								onClick={() => handleNavigation('/login')}
 								text={'Login'}
 								className='btn-navbar'
 							/>
@@ -66,7 +87,7 @@ function NavbarComponent() {
 				<ThemeToggle />
 
 				<Buttons
-					onClick={() => navigate('/login')}
+					onClick={() => handleNavigation('/login')}
 					text={'Login'}
 					className='btn-navbar'
 				/>

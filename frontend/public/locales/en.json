@@ -14,5 +14,27 @@
 		"sideText-signup": "Log in to Momentum and stay on track with your habits! Access your progress, set new goals, and keep yourself motivated—anytime, anywhere.",
 		"signup-header": "Create your Account",
 		"signup-instructions": "Fill out all the important information."
+	},
+
+	"AboutUs": {
+		"Au-Header": "More Than Just a Habit Tracker, A Movement Toward Better Living!",
+		"Au-Subtext": "At Momentum, we believe that small, consistent actions lead to extraordinary transformations. Whether you're building new habits or breaking old ones, we're here to support your journey every step of the way.",
+		"Mission-Text": "To help you create meaningful, lasting habits that align with your personal goals. We leverage smart tracking, AI-powered insights, and community-driven accountability to make habit-building easy, engaging, and effective.",
+		"CTA-Header": "Join the Momentum!",
+		"CTA-Subtext": "Start tracking your habits smarter, not harder.",
+		"CTA-Button": "Get Started Now"
+	},
+
+	"Au-Story": {
+		"item-1-header": "The Idea",
+		"item-1-text": "Momentum was born from a simple realization: building good habits is hard, but it doesn't have to be. We wanted to create a habit tracker that adapts to you, not the other way around.",
+		"item-2-header": "The First Prototype",
+		"item-2-text": "We started developing Momentum with a focus on simplicity, AI-powered insights, and personalized habit tracking. The goal was to make habit-building engaging, not overwhelming.",
+		"item-3-header": "Growth",
+		"item-3-text": "What started as a side project quickly turned into a movement. Beta users loved the AI-driven insights and community challenges, helping us refine the platform.",
+		"item-4-header": "Momentum Goes Live",
+		"item-4-text": "Momentum officially launched, empowering thousands of users to take control of their habits. With every update, we continue to innovate and improve.",
+		"item-5-header": "The Future",
+		"item-5-text": "We're just getting started! More features, deeper insights, and stronger communities are coming. Our mission remains the same: helping you build habits that last."
 	}
 }

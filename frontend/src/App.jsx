@@ -6,6 +6,7 @@ import NavbarComponent from './components/static-components/jsx/navbar-component
 import FooterComponent from './components/static-components/jsx/footer-component';
 
 const Homepage = React.lazy(() => import('./pages/jsx/homepage-pages'));
+const AboutUs = React.lazy(() => import('./pages/jsx/about-us-pages'));
 const LoginComponent = React.lazy(() =>
 	import('./components/static-components/jsx/authentication-components/login-component'),
 );
@@ -31,7 +32,7 @@ function App() {
 						/>
 						<Route
 							path='/about'
-							element={''}
+							element={<AboutUs />}
 						/>
 						<Route
 							path='/contact'

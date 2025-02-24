@@ -5,6 +5,8 @@ const http = require('http');
 const socketIo = require('socket.io');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const compression = require('compression');
+const path = require('path');
 const isAuthenticated = require('./helpers/middleware');
 
 const usersRoutes = require('./routes/UsersRoutes');
@@ -20,6 +22,14 @@ const io = socketIo(server, {
 		allowedHeaders: ['Content-Type', 'Authorization'],
 		credentials: true,
 	},
+});
+
+app.use(compression({ threshold: 0 }));
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.use(

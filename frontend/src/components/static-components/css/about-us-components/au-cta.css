@@ -1,0 +1,25 @@
+.cta-main-container {
+	margin: 5rem 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.cta-heading-text {
+	font-family: zen dots;
+	font-size: 2rem;
+	letter-spacing: 0.5rem;
+}
+
+.cta-btn {
+	transition: background 0.3s ease-in-out;
+}
+
+.cta-btn:hover {
+	background-color: var(--hover-button);
+}
+
+.cta-subtext-text {
+	letter-spacing: 2px;
+}
