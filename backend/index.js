@@ -10,6 +10,7 @@ const path = require('path');
 const isAuthenticated = require('./helpers/middleware');
 
 const usersRoutes = require('./routes/UsersRoutes');
+const concernsRoutes = require('./routes/ConcernsRoutes');
 
 require('dotenv').config();
 
@@ -55,7 +56,6 @@ app.use(
 );
 
 app.use(express.json());
-app.use('/', usersRoutes);
 
 mongoose
 	.connect(process.env.MongoURI)
@@ -75,6 +75,8 @@ io.on('connection', (socket) => {
 	});
 });
 
+app.use('/', usersRoutes);
+app.use('/', concernsRoutes);
 app.listen(3000, () => {
 	console.log('Server is running on port 3000');
 });

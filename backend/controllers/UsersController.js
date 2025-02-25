@@ -3,10 +3,9 @@ const mongoose = require('mongoose');
 const express = require('express');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-const bcrypt = require('bcrypt');
 
 const UsersModel = require('../models/User');
-const generateUserId = require('../helpers/generateUserId');
+const getNextAvailableID = require('../helpers/generateUserId');
 
 const createUser = async (req, res) => {
 	try {
@@ -27,7 +26,7 @@ const createUser = async (req, res) => {
 		}
 
 		const hashedPassword = await hashPassword(password);
-		const userID = await generateUserId();
+		const userID = await getNextAvailableID();
 
 		const fullName = `${firstName} ${lastName}`;
 

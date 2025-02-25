@@ -36,5 +36,13 @@
 		"item-4-text": "Momentum officially launched, empowering thousands of users to take control of their habits. With every update, we continue to innovate and improve.",
 		"item-5-header": "The Future",
 		"item-5-text": "We're just getting started! More features, deeper insights, and stronger communities are coming. Our mission remains the same: helping you build habits that last."
+	},
+	"ContactUs": {
+		"Header": "Contact Us",
+		"Subtext": "Have a question or feedback? Reach out! Use the form, send us an email, or give us a call—we’re here to help you build better habits.",
+		"": "",
+		"": "",
+		"": "",
+		"": ""
 	}
 }

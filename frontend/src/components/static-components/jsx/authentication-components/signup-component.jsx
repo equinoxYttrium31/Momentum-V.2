@@ -41,12 +41,12 @@ function SignUpComponent() {
 			!user.password.trim() ||
 			!user.confirmPassword.trim()
 		) {
-			setError('Please fill out all the fields.');
+			toast.error('Please fill out all the fields.');
 			return;
 		}
 
 		if (user.password !== user.confirmPassword) {
-			setError('Passwords do not match.');
+			toast.error('Passwords do not match.');
 			return;
 		}
 
@@ -61,7 +61,7 @@ function SignUpComponent() {
 				confirmPassword: '',
 			});
 
-			toast.success(`${response.firstName}'s Account was created!`);
+			toast.success(`${user.firstName}'s Account was created!`);
 			navigate('/login');
 		} catch (err) {
 			toast.error(err.response?.data?.message || 'Something went wrong, please try again.');
@@ -144,7 +144,6 @@ function SignUpComponent() {
 							value={user.confirmPassword}
 							onChange={handleChange}
 						/>
-						{error && <p className='error-message wide'>{error}</p>}
 						<Buttons
 							onClick={handleSubmit}
 							text={t('Authentication.signup-button')}

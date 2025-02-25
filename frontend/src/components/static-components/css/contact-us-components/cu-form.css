@@ -1,0 +1,47 @@
+.cu-form-container-main {
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+}
+
+.cu-form-label {
+	font-size: clamp(1.125rem, 1.25vw, 3rem);
+}
+
+.cu-form-container {
+	width: 100%;
+}
+
+.cu-form-inp {
+	width: 100%;
+}
+
+.text-area {
+	border: 1px solid var(--text-color);
+	padding: 0.5rem;
+	border-radius: 0.3rem;
+	min-height: 11rem;
+	outline: none;
+}
+
+.cu-form-container:first-child {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+.cu-form-container:first-child .cu-form-label {
+	grid-column: span 2;
+}
+
+.cu-form-button {
+	padding: 0.3rem 2rem;
+	transition: background 0.2s ease-in-out;
+}
+
+.cu-form-button:hover {
+	background-color: var(--hover-button);
+}

@@ -39,10 +39,10 @@ function LoginComponent() {
 				//Redirect to the dashboard
 				toast.success('Logged in Successful!');
 			} else {
-				setError(response.data.message || 'Something went wrong');
+				toast.error(response.data.message || 'Something went wrong');
 			}
 		} catch (error) {
-			setError('An error occurred while logging in.');
+			toast.error('An error occurred while logging in.');
 		}
 	};
 
@@ -130,8 +130,6 @@ function LoginComponent() {
 								</svg>
 							)}
 						</button>
-
-						{error && <p className='error-message'>{error}</p>}
 
 						<Buttons
 							onClick={handleLogin}

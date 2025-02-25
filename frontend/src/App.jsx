@@ -7,6 +7,7 @@ import FooterComponent from './components/static-components/jsx/footer-component
 
 const Homepage = React.lazy(() => import('./pages/jsx/homepage-pages'));
 const AboutUs = React.lazy(() => import('./pages/jsx/about-us-pages'));
+const ContactUs = React.lazy(() => import('./pages/jsx/contact-us-pages'));
 const LoginComponent = React.lazy(() =>
 	import('./components/static-components/jsx/authentication-components/login-component'),
 );
@@ -36,7 +37,7 @@ function App() {
 						/>
 						<Route
 							path='/contact'
-							element={''}
+							element={<ContactUs />}
 						/>
 						<Route
 							path='/login'
