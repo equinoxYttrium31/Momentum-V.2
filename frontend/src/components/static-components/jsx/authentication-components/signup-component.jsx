@@ -74,7 +74,7 @@ function SignUpComponent() {
 				<img
 					src={logo}
 					alt='Momentum Logo'
-					className='lc-side-logo'
+					className='sc-side-logo'
 				/>
 				<p className='lc-engaging-text'>{t('Authentication.sideText')}</p>
 				<Buttons

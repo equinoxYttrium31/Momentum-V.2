@@ -77,6 +77,13 @@
 	align-items: start;
 }
 
+.lc-side-logo {
+	aspect-ratio: 4/4;
+	width: 25%;
+	margin: 0.5rem auto;
+	filter: var(--image-filter);
+}
+
 .lc-input {
 	width: 100%;
 }

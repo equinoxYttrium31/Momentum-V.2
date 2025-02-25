@@ -71,13 +71,17 @@ const loginUser = async (req, res) => {
 			return res.status(401).json({ message: 'Invalid email or password' });
 		}
 
+		// Set session variables
 		req.session.userId = user.userID;
 		req.session.userEmail = user.email;
+		req.session.user = user;
 		console.log('Session after login:', req.session);
 
-		res
-			.status(200)
-			.json({ message: 'Login successful', user: { id: user.userID, email: user.email } });
+		res.status(200).json({
+			message: 'Login successful',
+			redirectTo: '/dashboard',
+			user: { id: user.userID, email: user.email },
+		});
 	} catch (error) {
 		console.error('Login error:', error);
 		res.status(500).json({ message: 'Internal server error' });

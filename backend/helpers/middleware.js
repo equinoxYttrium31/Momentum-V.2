@@ -1,9 +1,8 @@
 const isAuthenticated = (req, res, next) => {
-	console.log('Session data in middleware:', req.session);
-	if (req.session.userId) {
-		next();
+	if (req.session && req.session.user) {
+		return next();
 	} else {
-		res.status(401).json({ message: 'Unauthorized access' });
+		return res.status(401).json({ authenticated: false });
 	}
 };
 
