@@ -59,7 +59,7 @@ function App() {
 								element={<SignUpComponent />}
 							/>
 							<Route
-								path='/dashboard'
+								path='/dashboard/*'
 								element={isAuthenticated ? <Dashboard /> : <Navigate to='/login' />}
 							/>
 						</Routes>

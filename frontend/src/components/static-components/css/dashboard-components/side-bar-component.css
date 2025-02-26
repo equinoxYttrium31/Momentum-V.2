@@ -1,0 +1,90 @@
+.sidebar-container-main {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	height: 100vh;
+	width: 100%;
+	padding: 3rem 0.5rem;
+}
+
+.sidebar-container-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.sidebar-header-logo {
+	aspect-ratio: 1/1;
+	width: 3rem;
+}
+
+.profile-button {
+	border-bottom: 2px solid transparent;
+	transition: all 0.2s ease-in-out;
+}
+
+.profile-button:hover {
+	border-bottom: 2px solid var(--main-button);
+}
+
+.sidebar-header-text {
+	font-size: clamp(1.5rem, 1.5vw, 2rem);
+	font-weight: 600;
+	font-family: var(--heading-font);
+}
+
+.sidebar-close-button.left {
+	transition: all 0.2s ease-in-out;
+}
+
+.sidebar-close-button.left:hover {
+	transform: translateX(-3px);
+}
+
+.sidebar-close-button.right {
+	transition: all 0.2s ease-in-out;
+}
+
+.sidebar-close-button.right:hover {
+	transform: translateX(3px);
+}
+
+.sidebar-navigation-container {
+	display: flex;
+	flex-direction: column;
+	height: 90%;
+	justify-content: space-between;
+}
+
+#sidebar-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.sidebar-link {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.5rem 0.5rem;
+	border-radius: 0.5rem;
+	transition: all 0.1s ease-in-out;
+}
+
+.sidebar-link:hover {
+	background-color: var(--hover-button);
+	padding: 0.3rem 1rem;
+}
+
+.sidebar-tags {
+	font-size: clamp(1rem, 1vw, 2rem);
+	font-weight: 500;
+}
+
+.sidebar-copyright {
+	font-size: clamp(0.2rem, 0.7vw, 1.5rem);
+	font-weight: 500;
+	opacity: 0.5;
+	text-align: center;
+	margin-top: 1rem;
+}

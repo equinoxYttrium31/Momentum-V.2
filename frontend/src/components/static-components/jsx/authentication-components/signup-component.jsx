@@ -138,6 +138,7 @@ function SignUpComponent() {
 						<InputField
 							inpType={'password'}
 							className='sc-inputs wide'
+							onpaste='return false;'
 							placeholder={'Confirm Password'}
 							required={true}
 							name='confirmPassword'
