@@ -1,0 +1,12 @@
+.dashboard-header-text {
+	text-wrap: nowrap;
+	font-family: var(--heading-font);
+	font-size: clamp(1.5rem, 2vw, 3rem);
+	letter-spacing: clamp(2px, 3px, 4px);
+}
+
+.dashboard-welcome-text {
+	letter-spacing: clamp(1px, 2px, 4px);
+	font-size: clamp(0.8rem, 1vw, 2rem);
+	font-weight: 500;
+}

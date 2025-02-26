@@ -79,7 +79,7 @@ const loginUser = async (req, res) => {
 
 		res.status(200).json({
 			message: 'Login successful',
-			redirectTo: '/dashboard',
+			redirectTo: '/dashboard/',
 			user: { id: user.userID, email: user.email },
 		});
 	} catch (error) {

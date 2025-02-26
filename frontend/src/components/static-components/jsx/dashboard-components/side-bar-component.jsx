@@ -3,13 +3,16 @@ import logo from '/momentum-logo.png';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import navLinks from '../../../../data/navList';
+import { useLocation } from 'react-router-dom';
 
 import axios from 'axios';
+import placeholder from '../../../../assets/images/placeholder.jpg';
 
 function SidebarComponent() {
 	const [isOpen, setIsOpen] = useState(true);
 	const [user, setUser] = useState({});
 	const apiLink = import.meta.env.VITE_AXIOS_URL;
+	const location = useLocation();
 
 	const fetchUser = async () => {
 		try {
@@ -21,6 +24,13 @@ function SidebarComponent() {
 		} catch (error) {
 			console.log(error);
 		}
+	};
+
+	const getUserInitials = (name) => {
+		if (!name) return '?'; // Default if name is missing
+		const nameParts = name.split(' ');
+		const initials = nameParts.map((part) => part[0].toUpperCase()).join('');
+		return initials;
 	};
 
 	useEffect(() => {
@@ -90,7 +100,7 @@ function SidebarComponent() {
 							>
 								<Link
 									to={link.path}
-									className='sidebar-link'
+									className={`sidebar-link ${location.pathname === link.path ? 'active' : ''}`}
 								>
 									{link.icon && <span className='sidebar-icon'>{link.icon}</span>}
 									<span className={`${isOpen ? 'block' : 'hidden'} sidebar-tags`}>{link.name}</span>
@@ -101,11 +111,17 @@ function SidebarComponent() {
 				</div>
 				<div className='sidebar-navigation-footer-container'>
 					<div className='p-4 border-t flex items-center gap-3'>
-						<img
-							src='https://via.placeholder.com/40'
-							alt='Profile'
-							className='rounded-full w-10 h-10'
-						/>
+						{user ? (
+							<div className='w-10 h-10 flex items-center justify-center bg-blue-500 text-white font-bold rounded-full text-lg'>
+								{getUserInitials(user.fullName)}
+							</div>
+						) : (
+							<img
+								src={placeholder}
+								alt='Profile'
+								className='rounded-full w-10 h-10'
+							/>
+						)}
 						<div className={`${isOpen ? 'block' : 'hidden'}`}>
 							<p className='text-sm font-semibold'>{user.fullName}</p>
 							<button className='text-xs text-gray-500 profile-button'>View Profile</button>

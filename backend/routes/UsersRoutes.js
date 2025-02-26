@@ -10,7 +10,7 @@ router.post('/logout', isAuthenticated, logoutUser);
 router.get('/fetch-user', isAuthenticated, fetchUser);
 
 // Apply the isAuthenticated middleware to the /dashboard route
-router.get('/dashboard', isAuthenticated, (req, res) => {
+router.get('/dashboard/', isAuthenticated, (req, res) => {
 	if (req.session.user) {
 		res.json({ authenticated: true });
 	} else {

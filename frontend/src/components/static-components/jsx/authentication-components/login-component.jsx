@@ -37,7 +37,6 @@ function LoginComponent() {
 			);
 
 			if (response.status === 200) {
-				// Redirect to the dashboard
 				toast.success('Logged in Successfully!');
 				navigate(response.data.redirectTo);
 			} else {
