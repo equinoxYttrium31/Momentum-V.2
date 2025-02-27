@@ -1,33 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const useAuth = () => {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const [loading, setLoading] = useState(true);
+	const apiUrl = import.meta.env.VITE_AXIOS_URL;
+
+	// Function to refresh authentication state
+	const checkAuth = useCallback(async () => {
+		setLoading(true);
+		try {
+			const response = await axios.get(`${apiUrl}/dashboard`, {
+				withCredentials: true,
+			});
+			setIsAuthenticated(response.status === 200 && response.data.authenticated);
+		} catch (error) {
+			setIsAuthenticated(false);
+		} finally {
+			setLoading(false);
+		}
+	}, [apiUrl]);
 
 	useEffect(() => {
-		const checkAuth = async () => {
-			try {
-				const response = await axios.get('http://localhost:3000/dashboard', {
-					withCredentials: true,
-				});
-				if (response.status === 200 && response.data.authenticated) {
-					setIsAuthenticated(true);
-				} else {
-					setIsAuthenticated(false);
-				}
-			} catch (error) {
-				console.error('Error:', error);
-				setIsAuthenticated(false);
-			} finally {
-				setLoading(false);
-			}
-		};
-
 		checkAuth();
-	}, []);
+	}, [checkAuth]);
 
-	return { isAuthenticated, loading };
+	// Make sure checkAuth is included in return
+	return { isAuthenticated, loading, checkAuth };
 };
 
 export default useAuth;

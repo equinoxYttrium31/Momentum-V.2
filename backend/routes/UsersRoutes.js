@@ -6,11 +6,12 @@ const { createUser, loginUser, logoutUser, fetchUser } = require('../controllers
 
 router.post('/create-user', createUser);
 router.post('/login', loginUser);
-router.post('/logout', isAuthenticated, logoutUser);
+router.get('/logout-user', isAuthenticated, logoutUser);
 router.get('/fetch-user', isAuthenticated, fetchUser);
 
 // Apply the isAuthenticated middleware to the /dashboard route
-router.get('/dashboard/', isAuthenticated, (req, res) => {
+router.get('/dashboard', isAuthenticated, (req, res) => {
+	console.log('Session in /dashboard:', req.session);
 	if (req.session.user) {
 		res.json({ authenticated: true });
 	} else {

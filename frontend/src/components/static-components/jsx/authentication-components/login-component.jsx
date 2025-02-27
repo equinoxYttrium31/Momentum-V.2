@@ -2,6 +2,7 @@ import '../../css/authentication-components/login-component.css';
 import logo from '/momentum-logo.png';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import useAuth from '../../../../hooks/useAuth';
 
 // Hooks Imports
 import { useTranslation } from 'react-i18next';
@@ -15,6 +16,7 @@ import Buttons from '../../../reusable-components/Buttons';
 function LoginComponent() {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
+	const { checkAuth } = useAuth();
 
 	const apiUrl = import.meta.env.VITE_AXIOS_URL;
 	const [email, setEmail] = useState('');
@@ -38,7 +40,10 @@ function LoginComponent() {
 
 			if (response.status === 200) {
 				toast.success('Logged in Successfully!');
-				navigate(response.data.redirectTo);
+				window.location.reload();
+				await checkAuth();
+				console.log('Redirecting to dashboard...');
+				navigate('/dashboard/');
 			} else {
 				toast.error(response.data.message || 'Something went wrong');
 			}

@@ -1,7 +1,7 @@
-const navLinks = [
+const navLink = [
 	{
 		name: 'Dashboard',
-		path: '/dashboard/',
+		path: '/dashboard',
 		className: 'sidebar-navigation-list-item',
 		icon: (
 			<svg
@@ -179,4 +179,4 @@ const navLinks = [
 	},
 ];
 
-export default navLinks;
+export default navLink;

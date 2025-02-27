@@ -2,7 +2,7 @@ import '../../css/dashboard-components/side-bar-component.css';
 import logo from '/momentum-logo.png';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import navLinks from '../../../../data/navList';
+import navLink from '../../../../data/navList';
 import { useLocation } from 'react-router-dom';
 
 import axios from 'axios';
@@ -93,7 +93,7 @@ function SidebarComponent() {
 						id='sidebar-list'
 						className='space-y-2 px-2'
 					>
-						{navLinks.map((link, index) => (
+						{navLink.map((link, index) => (
 							<li
 								key={index}
 								className={link.className}
@@ -103,7 +103,7 @@ function SidebarComponent() {
 									className={`sidebar-link ${location.pathname === link.path ? 'active' : ''}`}
 								>
 									{link.icon && <span className='sidebar-icon'>{link.icon}</span>}
-									<span className={`${isOpen ? 'block' : 'hidden'} sidebar-tags`}>{link.name}</span>
+									<span className={`${isOpen ? 'block' : 'hidden'}`}>{link.name}</span>
 								</Link>
 							</li>
 						))}

@@ -1,9 +1,7 @@
 import SidebarComponent from '../../components/static-components/jsx/dashboard-components/side-bar-component';
-import React, { Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import MainHeader from '../../components/static-components/jsx/dashboard-components/main-header';
+import { Outlet } from 'react-router-dom';
 import '../css/dashboard-pages.css';
-
-const DashboardHome = React.lazy(() => import('./dashboard-home'));
 
 function Dashboard() {
 	return (
@@ -12,22 +10,12 @@ function Dashboard() {
 				<SidebarComponent />
 			</div>
 			<div className='dashboard-content-container'>
-				<Suspense fallback={<div>Loading...</div>}>
-					<Routes>
-						<Route
-							path='/'
-							element={<DashboardHome />}
-						/>
-						<Route
-							path='/settings'
-							element={''}
-						/>
-						<Route
-							path='*'
-							element={<Navigate to='/dashboard/' />}
-						/>
-					</Routes>
-				</Suspense>
+				<div className='dashboard-content-header'>
+					<MainHeader />
+				</div>
+				<div className='dashboard-content'>
+					<Outlet />
+				</div>
 			</div>
 		</div>
 	);
