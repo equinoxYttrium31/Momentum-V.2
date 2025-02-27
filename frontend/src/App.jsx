@@ -11,6 +11,9 @@ const AboutUs = React.lazy(() => import('./pages/jsx/about-us-pages'));
 const ContactUs = React.lazy(() => import('./pages/jsx/contact-us-pages'));
 const Dashboard = React.lazy(() => import('./pages/jsx/dashboard-pages'));
 const DashboardHome = React.lazy(() => import('./pages/jsx/dashboard-home'));
+const HabitsComponents = React.lazy(() =>
+	import('./components/static-components/jsx/dashboard-components/habits-components'),
+);
 const LoginComponent = React.lazy(() =>
 	import('./components/static-components/jsx/authentication-components/login-component'),
 );
@@ -84,7 +87,7 @@ function App() {
 							/>
 							<Route
 								path='habits'
-								element={<div>Habits Page Placeholder</div>}
+								element={<HabitsComponents />}
 							/>
 							<Route
 								path='goals'

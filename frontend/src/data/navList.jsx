@@ -104,7 +104,7 @@ const navLink = [
 		className: 'sidebar-navigation-list-item',
 		icon: (
 			<svg
-				fill='#f5f5f5'
+				fill='currentColor'
 				width='24px'
 				height='24px'
 				viewBox='0 0 32 32'

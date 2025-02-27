@@ -5,6 +5,7 @@
 	--text-color: #3674b5;
 	--text-hover: #35587e;
 	--main-button: #35587e;
+	--dh-color: #d1f8ef;
 	--side-bar: #1a202c;
 	--hover-button: #366fac;
 	--image-filter: invert(1) contrast(100%);
@@ -23,6 +24,7 @@
 	--text-color: #d1f8ef;
 	--side-bar: #d1f8ef;
 	--text-hover: #366fac;
+	--dh-color: #366fac;
 	--image-filter: none;
 	--main-button: rgb(39, 53, 83);
 	--hover-button: rgb(25, 43, 63);

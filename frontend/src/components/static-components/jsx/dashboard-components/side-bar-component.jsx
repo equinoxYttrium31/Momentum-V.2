@@ -103,7 +103,7 @@ function SidebarComponent() {
 									className={`sidebar-link ${location.pathname === link.path ? 'active' : ''}`}
 								>
 									{link.icon && <span className='sidebar-icon'>{link.icon}</span>}
-									<span className={`${isOpen ? 'block' : 'hidden'}`}>{link.name}</span>
+									<span className={`${isOpen ? 'block' : 'hidden'} link-tag`}>{link.name}</span>
 								</Link>
 							</li>
 						))}

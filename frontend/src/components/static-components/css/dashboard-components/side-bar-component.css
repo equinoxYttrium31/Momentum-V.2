@@ -16,6 +16,7 @@
 .sidebar-header-logo {
 	aspect-ratio: 1/1;
 	width: 3rem;
+	filter: var(--image-filter);
 }
 
 .profile-button {
@@ -72,12 +73,28 @@
 }
 
 .sidebar-link:hover {
-	background-color: var(--hover-button);
+	background-color: var(--text-color);
 	padding: 0.3rem 1rem;
 }
 
+.sidebar-link:hover .link-tag {
+	color: var(--bg-color);
+}
+
+.sidebar-link.active .link-tag {
+	color: var(--bg-color);
+}
+
+.sidebar-link:hover .sidebar-icon {
+	color: var(--bg-color);
+}
+
+.sidebar-link.active .sidebar-icon {
+	color: var(--bg-color);
+}
+
 .sidebar-link.active {
-	background-color: var(--main-button);
+	background-color: var(--text-color);
 	padding: 0.3rem 1rem;
 }
 

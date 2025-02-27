@@ -4,6 +4,7 @@
 	justify-content: flex-end;
 	gap: 1rem;
 	align-items: center;
+	color: var(--dh-color);
 }
 
 .button-container {
@@ -14,6 +15,7 @@
 	position: relative;
 	cursor: pointer;
 	top: 5px;
+	color: var(--text-color);
 }
 
 .notification-count {
@@ -39,18 +41,18 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	background-color: var(--main-button);
+	background-color: var(--hover-button);
 	padding: 0.5rem 0.5rem;
 }
 
 .modal-button-profile {
 	position: absolute;
-	z-index: 5;
+	z-index: 100;
 	top: 3rem;
 	right: 0rem;
 	height: fit-content;
 	width: 20rem;
-	background-color: var(--main-button);
+	background-color: var(--hover-button);
 	padding: 0.5rem 0.5rem;
 	display: flex;
 	flex-direction: column;
@@ -95,7 +97,7 @@
 
 .profile-btn,
 .logout-btn {
-	border-bottom: 2px solid var(--main-button);
+	border-bottom: 2px solid transparent;
 	cursor: pointer;
 	width: 50%;
 	transition: all 0.3s ease-in-out;
@@ -103,7 +105,7 @@
 
 .profile-btn:hover,
 .logout-btn:hover {
-	border-bottom: 2px solid var(--hover-button);
+	border-bottom: 2px solid var(--bg-color);
 }
 
 .header-modal-notifications {
