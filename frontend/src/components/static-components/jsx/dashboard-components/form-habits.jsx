@@ -1,7 +1,39 @@
 import '../../css/dashboard-components/form-habits.css';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
+
+//Parent Component: Forms
+
+//Child Components:
+import ProgressBarComponent from './forms-habits-components/ProgressBar-component';
+import FormPageOne from './forms-habits-components/Page-01';
+
+const steps = [
+	'Basic Habit Details',
+	'Frequency & Tracking',
+	'Reminders & Notifications',
+	'Goals & Milestones',
+	'Habit Log & AI Insights',
+	'Review & Save',
+];
 
 function FormHabits({ onClose }) {
+	const [currentStep, setCurrentStep] = useState(0);
+
+	const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
+	const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 0));
+
+	// Render current page dynamically
+	const renderStep = () => {
+		switch (currentStep) {
+			case 0:
+				return <FormPageOne onNext={nextStep} />;
+
+			default:
+				return <FormPageOne onNext={nextStep} />;
+		}
+	};
+
 	return (
 		<div className='form-habits-container'>
 			<div className='form-habits-header'>
@@ -38,6 +70,15 @@ function FormHabits({ onClose }) {
 				<h2 className='form-habits-header-text'>Add Habit</h2>
 
 				{/*Need to add the progress page */}
+				{/* Progress Bar */}
+				<ProgressBarComponent
+					currentStep={currentStep}
+					totalSteps={steps.length}
+					stepTitles={steps}
+				/>
+
+				{/* Render Step Form */}
+				<div className='form-content'>{renderStep()}</div>
 			</div>
 		</div>
 	);
