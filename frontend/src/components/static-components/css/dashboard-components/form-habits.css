@@ -1,0 +1,13 @@
+.form-habits-header {
+	display: flex;
+	align-items: center;
+	gap: 1%;
+}
+
+.form-habits-header-text {
+	font-family: var(--heading-font);
+	height: 100%;
+	text-align: start;
+	font-size: clamp(1.5rem, 2vw, 3rem);
+	font-weight: bold;
+}

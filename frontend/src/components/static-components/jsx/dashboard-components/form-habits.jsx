@@ -1,17 +1,17 @@
 import '../../css/dashboard-components/form-habits.css';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 //Parent Component: Forms
 
 //Child Components:
 import ProgressBarComponent from './forms-habits-components/ProgressBar-component';
 import FormPageOne from './forms-habits-components/Page-01';
+import FormPageTwo from './forms-habits-components/Page-02';
 
 const steps = [
 	'Basic Habit Details',
-	'Frequency & Tracking',
-	'Reminders & Notifications',
+	'Frequency & Reminders',
 	'Goals & Milestones',
 	'Habit Log & AI Insights',
 	'Review & Save',
@@ -20,15 +20,40 @@ const steps = [
 function FormHabits({ onClose }) {
 	const [currentStep, setCurrentStep] = useState(0);
 
-	const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
-	const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 0));
+	useEffect(() => {
+		const savedStep = sessionStorage.getItem('currentStep');
+		if (savedStep) {
+			setCurrentStep(parseInt(savedStep, 10));
+		}
+	}, []);
+
+	const nextStep = () => {
+		setCurrentStep((prev) => {
+			const nextStep = Math.min(prev + 1, steps.length - 1);
+			sessionStorage.setItem('currentStep', nextStep);
+			return nextStep;
+		});
+	};
+	const prevStep = () => {
+		setCurrentStep((prev) => {
+			const prevStep = Math.max(prev - 1, 0);
+			sessionStorage.setItem('currentStep', prevStep);
+			return prevStep;
+		});
+	};
 
 	// Render current page dynamically
 	const renderStep = () => {
 		switch (currentStep) {
 			case 0:
 				return <FormPageOne onNext={nextStep} />;
-
+			case 1:
+				return (
+					<FormPageTwo
+						onNext={nextStep}
+						onPrev={prevStep}
+					/>
+				);
 			default:
 				return <FormPageOne onNext={nextStep} />;
 		}
@@ -68,7 +93,9 @@ function FormHabits({ onClose }) {
 					</svg>
 				</button>
 				<h2 className='form-habits-header-text'>Add Habit</h2>
+			</div>
 
+			<div className='form-main-content'>
 				{/*Need to add the progress page */}
 				{/* Progress Bar */}
 				<ProgressBarComponent
