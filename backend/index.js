@@ -11,6 +11,7 @@ const isAuthenticated = require('./helpers/middleware');
 
 const usersRoutes = require('./routes/UsersRoutes');
 const concernsRoutes = require('./routes/ConcernsRoutes');
+const habitRoutes = require('./routes/HabitRoutes');
 
 require('dotenv').config();
 
@@ -81,6 +82,7 @@ io.on('connection', (socket) => {
 // Set up routes for users and concerns
 app.use('/', usersRoutes);
 app.use('/', concernsRoutes);
+app.use('/', habitRoutes);
 
 // Serve static files from the frontend directory (assuming no build directory)
 app.use(express.static(path.join(__dirname, '../frontend/dist')));

@@ -1,10 +1,12 @@
-.form-page-two-container {
+.form-page-three-container {
 	width: 100%;
 	padding: 0;
 	margin: 0;
+	height: 75vh;
+	overflow-y: scroll;
 }
 
-.form-page-two-content {
+.form-page-three-content {
 	width: 40%;
 	display: flex;
 	flex-direction: column;
@@ -12,11 +14,11 @@
 	margin: 5% auto;
 }
 
-.page-two-header {
+.page-header {
 	text-align: start;
 }
 
-.header-two-text {
+.header-text {
 	font-family: var(--heading-font);
 	letter-spacing: clamp(0.2rem, 0.1vw, 0.5rem);
 	height: 100%;
@@ -25,15 +27,11 @@
 	font-weight: bold;
 }
 
-.page-two-content {
+.page-content {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	width: 100%;
 	gap: 1.5rem;
-}
-
-.wide {
-	grid-column: span 2;
 }
 
 .form-fields {
@@ -41,11 +39,6 @@
 	flex-direction: column;
 	justify-content: center;
 }
-
-.form-fields:focus {
-	outline: none;
-}
-
 .form-fields label {
 	font-size: clamp(0.6rem, 1rem, 4rem);
 	font-weight: 500;
@@ -62,13 +55,13 @@
 	padding: 0.3rem 2rem;
 }
 
-.back-btn:hover {
-	background-color: var(--hover-button);
+.sub-header {
+	font-weight: 700;
+	color: var(--text-hover);
+	font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
-.checkbox-cont {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 1.5rem;
+.habit-log-list {
+	list-style: circle;
+	padding-left: 5%;
 }

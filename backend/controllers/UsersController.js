@@ -71,14 +71,10 @@ const loginUser = async (req, res) => {
 			return res.status(401).json({ message: 'Invalid email or password' });
 		}
 
-		// ✅ Set session variables correctly
 		req.session.userId = user.userID;
 		req.session.userEmail = user.email;
 		req.session.user = { id: user.userID, email: user.email };
 
-		console.log('Session after login:', req.session);
-
-		// ✅ Ensure the session is saved before responding
 		req.session.save((err) => {
 			if (err) {
 				console.error('Session save error:', err);

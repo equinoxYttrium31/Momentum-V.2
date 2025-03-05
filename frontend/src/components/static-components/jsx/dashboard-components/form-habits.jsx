@@ -1,24 +1,86 @@
 import '../../css/dashboard-components/form-habits.css';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 //Parent Component: Forms
 
 //Child Components:
 import ProgressBarComponent from './forms-habits-components/ProgressBar-component';
 import FormPageOne from './forms-habits-components/Page-01';
 import FormPageTwo from './forms-habits-components/Page-02';
+import FormPageThree from './forms-habits-components/Page-03';
+import FormPageFour from './forms-habits-components/Page-04';
 
 const steps = [
 	'Basic Habit Details',
 	'Frequency & Reminders',
-	'Goals & Milestones',
-	'Habit Log & AI Insights',
+	'Goals, Milestones & Habit Log',
 	'Review & Save',
 ];
 
 function FormHabits({ onClose }) {
 	const [currentStep, setCurrentStep] = useState(0);
+
+	const APIurl = import.meta.env.VITE_AXIOS_URL;
+
+	const description = sessionStorage.getItem('description');
+	const duration = sessionStorage.getItem('duration');
+	const enableInsights = sessionStorage.getItem('enableInsights') === 'true'; // Convert string back to boolean
+	const enableMilestones = sessionStorage.getItem('enableMilestones') === 'true';
+	const enableNotifications = sessionStorage.getItem('enableNotifications') === 'true';
+	const enableReminder = sessionStorage.getItem('enableReminder') === 'true';
+	const enableSuggestions = sessionStorage.getItem('enableSuggestions') === 'true';
+	const endDate = sessionStorage.getItem('endDate');
+	const frequency = sessionStorage.getItem('frequency');
+	const goalType = sessionStorage.getItem('goalType');
+	const goalValue = parseInt(sessionStorage.getItem('goalValue'), 10);
+	const habitLog = JSON.parse(sessionStorage.getItem('habitLog')); // Parsing the habitLog array
+	const habitTitle = sessionStorage.getItem('habitTitle');
+	const reminderTime = sessionStorage.getItem('reminderTime');
+	const startDate = sessionStorage.getItem('startDate');
+	const tags = JSON.parse(sessionStorage.getItem('tags'));
+
+	const HandleSave = async () => {
+		try {
+			const habit = {
+				description,
+				duration,
+				enableInsights,
+				enableMilestones,
+				enableNotifications,
+				enableReminder,
+				enableSuggestions,
+				endDate,
+				frequency,
+				goalType,
+				goalValue,
+				habitLog,
+				habitTitle,
+				reminderTime,
+				startDate,
+				tags,
+			};
+
+			const response = await axios.post(`${APIurl}/create-habit`, habit, {
+				withCredentials: true,
+				body: JSON.stringify(habit),
+			});
+
+			if (response.status === 201) {
+				toast.success('Habit saved successfully!');
+				console.log('Habit saved successfully:', response.data);
+
+				sessionStorage.clear();
+				setCurrentStep(0);
+			} else {
+				toast.error('Failed to save habit');
+				console.error('Failed to save habit. Server responded with:', response.status);
+			}
+		} catch (error) {
+			console.error('Error saving habit!', error);
+		}
+	};
 
 	useEffect(() => {
 		const savedStep = sessionStorage.getItem('currentStep');
@@ -51,6 +113,20 @@ function FormHabits({ onClose }) {
 				return (
 					<FormPageTwo
 						onNext={nextStep}
+						onPrev={prevStep}
+					/>
+				);
+			case 2:
+				return (
+					<FormPageThree
+						onNext={nextStep}
+						onPrev={prevStep}
+					/>
+				);
+			case 3:
+				return (
+					<FormPageFour
+						onSave={HandleSave}
 						onPrev={prevStep}
 					/>
 				);

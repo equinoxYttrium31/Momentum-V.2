@@ -48,7 +48,13 @@ function FormPageOne({ onNext }) {
 		setTags(tags.filter((tag) => tag !== tagToDelete));
 	};
 
-	const handleNext = () => {
+	const handleNext = (e) => {
+		e.preventDefault();
+		if (!habitTitle.trim() || !description.trim() || tags.length === 0) {
+			toast.error('Please fill in all required fields.');
+			return;
+		}
+
 		sessionStorage.setItem('habitTitle', habitTitle);
 		sessionStorage.setItem('description', description);
 		sessionStorage.setItem('tags', JSON.stringify(tags));
@@ -72,6 +78,7 @@ function FormPageOne({ onNext }) {
 							name={'habitTitle'}
 							placeholder={'e.g., "Morning Exercise"'}
 							onChange={handleInputChange}
+							required={true}
 						/>
 					</div>
 					<div className='form-fields'>
@@ -83,6 +90,7 @@ function FormPageOne({ onNext }) {
 							className='text-area-page01'
 							placeholder={'e.g., why, how, and when you want to achieve it'}
 							onChange={handleInputChange}
+							required={true}
 						/>
 					</div>
 					<div className='form-fields'>
@@ -93,6 +101,7 @@ function FormPageOne({ onNext }) {
 							name={'tags'}
 							onChange={handleInputChange}
 							onKeyDown={handleKeyDown}
+							required={true}
 							placeholder='Add tags'
 						/>
 					</div>

@@ -43,13 +43,14 @@ function FormPageTwo({ onNext, onPrev }) {
 	};
 
 	const handleNext = () => {
+		if (!frequency.trim() || !duration.trim() || !startDate) {
+			toast.error('Please fill in all required fields.');
+			return;
+		}
 		sessionStorage.setItem('frequency', frequency);
 		sessionStorage.setItem('duration', duration);
 		sessionStorage.setItem('startDate', startDate);
 		sessionStorage.setItem('endDate', endDate);
-		sessionStorage.setItem('enableReminder', enableReminder);
-		sessionStorage.setItem('reminderTime', reminderTime);
-		sessionStorage.setItem('enableNotifications', enableNotifications);
 		sessionStorage.setItem('enableReminder', JSON.stringify(enableReminder));
 		sessionStorage.setItem('reminderTime', reminderTime);
 		sessionStorage.setItem('enableNotifications', JSON.stringify(enableNotifications));
@@ -63,9 +64,6 @@ function FormPageTwo({ onNext, onPrev }) {
 		sessionStorage.setItem('duration', duration);
 		sessionStorage.setItem('startDate', startDate);
 		sessionStorage.setItem('endDate', endDate);
-		sessionStorage.setItem('enableReminder', enableReminder);
-		sessionStorage.setItem('reminderTime', reminderTime);
-		sessionStorage.setItem('enableNotifications', enableNotifications);
 		sessionStorage.setItem('enableReminder', JSON.stringify(enableReminder));
 		sessionStorage.setItem('reminderTime', reminderTime);
 		sessionStorage.setItem('enableNotifications', JSON.stringify(enableNotifications));
