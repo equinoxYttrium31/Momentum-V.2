@@ -172,8 +172,6 @@ function FormHabits({ onClose }) {
 			</div>
 
 			<div className='form-main-content'>
-				{/*Need to add the progress page */}
-				{/* Progress Bar */}
 				<ProgressBarComponent
 					currentStep={currentStep}
 					totalSteps={steps.length}

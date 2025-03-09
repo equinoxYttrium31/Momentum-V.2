@@ -45,4 +45,27 @@ const createHabit = async (req, res) => {
 	res.status(201).json({ message: 'Habit created successfully', habit: newHabit });
 };
 
-module.exports = { createHabit };
+const fetchUserHabits = async (req, res) => {
+	const userID = req.session.userId;
+	console.log(userID);
+
+	try {
+		if (!userID) {
+			return res.status(401).json({ message: 'User is not authenticated' });
+		}
+
+		const habits = await Habit.find({ user: userID });
+		console.log(habits);
+
+		if (!habits.length) {
+			return res.status(404).json({ message: 'No habits found' });
+		}
+
+		res.status(200).json(habits);
+	} catch (error) {
+		console.error(error, 'Failed fetching Habits');
+		res.status(500).json({ message: 'Internal Server Error' });
+	}
+};
+
+module.exports = { createHabit, fetchUserHabits };

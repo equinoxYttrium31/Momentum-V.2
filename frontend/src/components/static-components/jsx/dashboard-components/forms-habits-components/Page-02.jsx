@@ -15,6 +15,20 @@ function FormPageTwo({ onNext, onPrev }) {
 	const [reminderTime, setReminderTime] = useState('');
 	const [enableNotifications, setEnableNotifications] = useState(false);
 
+	const convertToGMT8 = (timeString) => {
+		const [hours, minutes] = timeString.split(':');
+
+		const date = new Date();
+		date.setUTCHours(hours, minutes, 0, 0);
+
+		const adjustedTime = new Date(date.getTime() + 8 * 60 * 60 * 1000);
+
+		const adjustedHours = adjustedTime.getHours().toString().padStart(2, '0');
+		const adjustedMinutes = adjustedTime.getMinutes().toString().padStart(2, '0');
+
+		return `${adjustedHours}:${adjustedMinutes}`;
+	};
+
 	useEffect(() => {
 		const savedFrequency = sessionStorage.getItem('frequency');
 		const savedDuration = sessionStorage.getItem('duration');

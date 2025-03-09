@@ -1,15 +1,51 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useEffect } from 'react';
+import axios from 'axios';
 import Buttons from '../../../reusable-components/Buttons';
 import InputField from '../../../reusable-components/Input-Field';
 import '../../css/dashboard-components/habits-component.css';
 
 const FormHabits = React.lazy(() => import('./form-habits'));
+import { FaFlagCheckered, FaChartLine } from 'react-icons/fa';
+
+function capitalizeFirstLetter(str) {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 function HabitsComponents() {
 	const [showAddHabit, setShowAddHabit] = useState(false);
+	const [habits, setHabits] = useState([]);
+	const APIurl = import.meta.env.VITE_AXIOS_URL;
 
 	const handleHabitModal = () => {
 		setShowAddHabit(!showAddHabit);
+	};
+
+	useEffect(() => {
+		const fetchHabits = async () => {
+			try {
+				const response = await axios.get(`${APIurl}/get-user-habit`, { withCredentials: true });
+
+				console.log('Raw API Response:', response);
+
+				if (response.status === 200) {
+					setHabits(Array.isArray(response.data) ? response.data : []); // Ensure it's an array
+				} else {
+					console.error('Failed to fetch habits:', response.status);
+				}
+			} catch (error) {
+				console.error('Error fetching habits:', error);
+				setHabits([]);
+			}
+		};
+
+		fetchHabits();
+	}, []);
+
+	const formatTime = (timeString) => {
+		const [hour, minute] = timeString.split(':');
+		const date = new Date();
+		date.setHours(hour, minute, 0, 0);
+		return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
 	};
 
 	return (
@@ -91,6 +127,99 @@ function HabitsComponents() {
 					</button>
 				</div>
 			</div>
+
+			{/* Display fetched habits */}
+			<div className='habits-list'>
+				{habits.length > 0 ? (
+					habits.map((habit) => (
+						<div
+							key={habit._id}
+							className='habit-item'
+						>
+							<h3 className='habit-card-title'>{habit.habitTitle}</h3>
+							<div className='habit-item-content'>
+								<p className='habit-card-subtitle wide-content'>{habit.description}</p>
+								<p className='habit-card-description'>
+									{capitalizeFirstLetter(habit.frequency)} · {habit.duration}mins
+								</p>
+								<p className='habit-card-description'>
+									{habit.endDate
+										? `${new Date(habit.startDate).toLocaleDateString()} - ${new Date(
+												habit.endDate,
+										  ).toLocaleDateString()}`
+										: `${new Date(habit.startDate).toLocaleDateString()}`}
+								</p>
+
+								<div className='habit-card-tags wide-content'>
+									{habit.enableReminder ? (
+										<p className='habit-chip '>Reminder: {formatTime(habit.reminderTime)}</p>
+									) : (
+										<p>No reminder set</p>
+									)}
+
+									{habit.enableMilestones && (
+										<div className='milestones-icon habit-chip click'>
+											<svg
+												fill='currentColor'
+												width='32px'
+												height='32px'
+												viewBox='0 0 1024 1024'
+												xmlns='http://www.w3.org/2000/svg'
+											>
+												<g
+													id='SVGRepo_bgCarrier'
+													stroke-width='0'
+												></g>
+												<g
+													id='SVGRepo_tracerCarrier'
+													stroke-linecap='round'
+													stroke-linejoin='round'
+												></g>
+												<g id='SVGRepo_iconCarrier'>
+													<path d='M256 614.4h230.4V768H256V614.4zm512-204.8v153.6H537.6V409.6h-51.2v153.6H256V409.6h91.5c-8.8-15.1-14.2-32.5-14.2-51.2 0-56.6 45.8-102.4 102.4-102.4 30.8 0 58 13.8 76.8 35.3 18.8-21.5 46-35.3 76.8-35.3 56.6 0 102.4 45.8 102.4 102.4 0 18.7-5.4 36.1-14.2 51.2H768zm-281.1-51.2c0-28.3-22.9-51.2-51.2-51.2-28.3 0-51.2 22.9-51.2 51.2 0 28.3 22.9 51.2 51.2 51.2 28.3 0 51.2-22.9 51.2-51.2zm153.6 0c0-28.3-22.9-51.2-51.2-51.2-28.3 0-51.2 22.9-51.2 51.2 0 28.3 22.9 51.2 51.2 51.2 28.3 0 51.2-22.9 51.2-51.2zM537.6 768H768V614.4H537.6V768z'></path>
+												</g>
+											</svg>
+										</div>
+									)}
+
+									{/* Insights Icon */}
+									{habit.enableInsights && (
+										<div className='insights-icon habit-chip click'>
+											<svg
+												width='32px'
+												height='32px'
+												viewBox='0 0 40 40'
+												xmlns='http://www.w3.org/2000/svg'
+												fill='currentColor'
+											>
+												<g
+													id='SVGRepo_bgCarrier'
+													stroke-width='0'
+												></g>
+												<g
+													id='SVGRepo_tracerCarrier'
+													stroke-linecap='round'
+													stroke-linejoin='round'
+												></g>
+												<g id='SVGRepo_iconCarrier'>
+													<path
+														d='M30 10H10v20h20V10zM16.667 21.667h-3.334v5h3.334v-5zm1.666-8.334h3.334v13.334h-3.334V13.333zm8.334 5h-3.334v8.334h3.334v-8.334z'
+														fill='currentColor'
+														fill-rule='evenodd'
+													></path>
+												</g>
+											</svg>
+										</div>
+									)}
+								</div>
+							</div>
+						</div>
+					))
+				) : (
+					<p>No habits found</p>
+				)}
+			</div>
+
 			{showAddHabit && (
 				<Suspense fallback={<div>Loading...</div>}>
 					<div className='add-habit-modal'>

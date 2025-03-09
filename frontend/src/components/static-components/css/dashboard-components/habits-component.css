@@ -55,10 +55,94 @@
 }
 
 .add-habit-modal {
-	position: relative;
-	top: -3.2rem;
-	left: 0rem;
+	position: absolute;
+	top: 3.2rem;
+	right: 0rem;
 	height: 85vh;
+	width: 85%;
 	background-color: var(--bg-color);
 	transition: all 0.3s ease-in-out;
+}
+
+.habits-list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	gap: 0.5rem;
+	padding: 2rem;
+	height: 85vh;
+	overflow-y: scroll;
+}
+
+.habit-item {
+	width: 100%;
+	height: fit-content;
+	background-color: rgba(255, 255, 255, 0.082);
+	backdrop-filter: blur(10px);
+	border-radius: 10px;
+	padding: 1.5rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.habit-card-title {
+	font-size: clamp(0.8rem, 1.2vw, 2rem);
+	font-weight: 600;
+	color: var(--dh-color);
+}
+
+.habit-item-content {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: 1rem;
+}
+
+.wide-content {
+	grid-column: span 2;
+}
+
+.habit-card-content {
+	padding: 1rem;
+}
+
+.habit-card-title {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.habit-card-subtitle {
+	font-weight: bold;
+	font-size: 0.85rem;
+	color: #666;
+}
+
+.habit-card-description {
+	font-size: 0.85rem;
+	color: var(--text-color);
+	margin-bottom: 1rem;
+}
+
+.habit-card-tags {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+	align-items: center;
+}
+
+.habit-chip {
+	border-radius: 15px;
+	font-size: 0.8rem;
+	padding: 5px 10px;
+	text-align: center;
+	display: flex;
+}
+
+.milestones-icon {
+	align-items: end;
+	justify-content: end;
+}
+
+.click {
+	cursor: pointer;
 }
